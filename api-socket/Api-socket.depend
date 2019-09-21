@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1568770543 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\inetaddress.cpp
+	"Headers/InetAddress.h"
+	<ws2tcpip.h>
+	<iostream>
+
+1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\inetaddress.h
+	<iostream>
+	<exception>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<stdio.h>
+	"ExcessaoHost.h"
+
+1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\excessaohost.h
+	<exception>
+
+1568770593 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\serversocket.cpp
+	"Headers/ServerSocket.h"
+
+1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\serversocket.h
+	"Socket.h"
+	"IOException.h"
+	<ws2tcpip.h>
+	<winsock2.h>
+	<iostream>
+
+1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\socket.h
+	"InetAddress.h"
+	"ExcessaoHost.h"
+	"IOException.h"
+	<stdio.h>
+
+1568765909 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\ioexception.h
+	<string>
+	<exception>
+
+1568770616 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\socket.cpp
+	<iostream>
+	<winsock2.h>
+	"Headers/ExcessaoHost.h"
+	"Headers/Socket.h"
+
+1569036562 source:c:\users\natha\desktop\projeto_lp2\api-socket\main.cpp
+	<iostream>
+	<winsock2.h>
+	<stdio.h>
+	<string>
+	"Includes/Headers/InetAddress.h"
+	"Includes/Headers/ExcessaoHost.h"
+	"Includes/Headers/Socket.h"
+	"Includes/Headers/ServerSocket.h"
+
+1569017105 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\prints.cpp
+	<iostream>
+	"Headers/prints.h"
+
+1569016905 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\prints.h
+

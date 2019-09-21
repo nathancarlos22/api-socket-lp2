@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1569034143 source:c:\users\natha\desktop\projeto_lp2\zap-raiz-v2\print.cpp
+	<iostream>
+	<windows.h>
+	"print.h"
+
+1569032932 c:\users\natha\desktop\projeto_lp2\zap-raiz-v2\print.h
+	<iostream>
+
+1569035749 source:c:\users\natha\desktop\projeto_lp2\zap-raiz-v2\main.cpp
+	<iostream>
+	<windows.h>
+	"print.h"
+	"contas.h"
+
+1569034596 c:\users\natha\desktop\projeto_lp2\zap-raiz-v2\contas.h
+	<iostream>
+
+1569039327 source:c:\users\natha\desktop\projeto_lp2\zap-raiz-v2\contas.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	"contas.h"
+	<stdio.h>
+

@@ -1,0 +1,37 @@
+# Project: zap-raiz-v2
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o print.o contas.o teste.o
+LINKOBJ  = main.o print.o contas.o teste.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = zap-raiz-v2.exe
+CXXFLAGS = $(CXXINCS) -l wsock32
+CFLAGS   = $(INCS) -l wsock32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+print.o: print.cpp
+	$(CPP) -c print.cpp -o print.o $(CXXFLAGS)
+
+contas.o: contas.cpp
+	$(CPP) -c contas.cpp -o contas.o $(CXXFLAGS)
+
+teste.o: teste.c
+	$(CPP) -c teste.c -o teste.o $(CXXFLAGS)
