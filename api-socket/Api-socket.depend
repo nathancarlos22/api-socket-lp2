@@ -41,7 +41,7 @@
 	"Headers/ExcessaoHost.h"
 	"Headers/Socket.h"
 
-1569036562 source:c:\users\natha\desktop\projeto_lp2\api-socket\main.cpp
+1569509306 source:c:\users\natha\desktop\projeto_lp2\api-socket\main.cpp
 	<iostream>
 	<winsock2.h>
 	<stdio.h>
@@ -50,6 +50,9 @@
 	"Includes/Headers/ExcessaoHost.h"
 	"Includes/Headers/Socket.h"
 	"Includes/Headers/ServerSocket.h"
+	<thread>
+	<process.h>
+	<vector>
 
 1569017105 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\prints.cpp
 	<iostream>

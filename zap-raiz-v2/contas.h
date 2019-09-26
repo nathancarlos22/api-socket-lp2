@@ -9,7 +9,9 @@ class contas {
 	public:
 		bool login(string username, string senha);
 		void cadastro (string nome, string senha, string ip, string porta);
-		void argumento(string nome);
+		void argumentoClient(string nome);
+		void argumentoServidor();
+		void enviar(int x);
 		contas(){};
 		~contas(){};
 	private:

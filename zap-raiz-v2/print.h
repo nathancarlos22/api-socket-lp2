@@ -8,6 +8,7 @@ class print{
 	
 	public:
 		void menu();
+		void printContas();
 		void login();
 		print(){};
 		~print(){};

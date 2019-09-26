@@ -1,11 +1,11 @@
 # Project: zap-raiz-v2
 # Makefile created by Dev-C++ 5.11
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -std=c++11
+CC       = gcc.exe -std=c++11
 WINDRES  = windres.exe
-OBJ      = main.o print.o contas.o teste.o
-LINKOBJ  = main.o print.o contas.o teste.o
+OBJ      = main.o print.o contas.o
+LINKOBJ  = main.o print.o contas.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = 
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
@@ -32,6 +32,3 @@ print.o: print.cpp
 
 contas.o: contas.cpp
 	$(CPP) -c contas.cpp -o contas.o $(CXXFLAGS)
-
-teste.o: teste.c
-	$(CPP) -c teste.c -o teste.o $(CXXFLAGS)

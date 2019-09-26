@@ -14,6 +14,26 @@ void print::menu() {
 void print::login() {
 	system("cls");
 	cout << "\n TELA LOGIN \n";	
-	cout << "1. Envar mensagem privada\n2. Enviar mensagem para mais de uma pessoa\n3. Logout" << endl;
+	cout << "1. Envar mensagem privada\n2. Enviar mensagem para mais de uma pessoa\n3. Participar de uma conversa\n4. Logout" << endl;
 	
+}
+
+void print::printContas(){
+	FILE *arq;
+	arq = fopen("contas.txt", "rt");
+	
+	char Cusername[50], Csenha[50], ip[50], porta[50];
+	
+	cout << "********Contas**********" << endl;
+	while(fscanf(arq, "%s %s %s %s", Cusername, Csenha, ip, porta) != EOF) {
+		
+		printf("\n");
+		
+		cout << "User: " << Cusername << endl;
+		cout << "Ip: " << ip << endl;
+		cout << "Porta: " << porta << endl;
+		printf("\n");
+	
+	}
+	fclose(arq);
 }
