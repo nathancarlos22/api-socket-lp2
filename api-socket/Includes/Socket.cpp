@@ -23,7 +23,6 @@ void Socket::connect(InetAddress *remoteAddr)throw (IOException, UnknownHostExce
 };
 
 Socket::Socket(string hostName, int port) throw (IOException, UnknownHostException){
-
     this->remotePort = port;
 
     this->remoteAddr  = InetAddress::getByName(hostName);
@@ -57,9 +56,9 @@ Socket::Socket(InetAddress *addr, int port)  throw (IOException){
 
 };
 
-int Socket::send(char * msg,int size) throw (IOException){
-    int message_length = strlen(msg);
-    this->descritorRemote = ::send(this->descritor, msg, message_length, 0);
+int Socket::send(char * msg, int size) throw (IOException){
+    //int message_length = strlen(msg);
+    this->descritorRemote = ::send(this->descritor, msg, size, 0);
         // envia a mensagem para o servidor
     if (this->descritorRemote == SOCKET_ERROR)
     {

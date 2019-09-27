@@ -9,34 +9,83 @@
 #include <thread>
 #include <process.h>
 #include <vector>
+#include <pthread.h>
+#include <chrono>
+#include <unistd.h>
 
 using namespace std;
 
-void send_clients(){
-	
+int pessoas=0;
+int clientesConectados[50];
+vector <Socket*> ListaSockets;
+//Socket *ListaSockets[10];
+
+constexpr std::chrono::seconds operator ""s(unsigned long long s)
+{
+    return std::chrono::seconds(s);
 }
 
-void send_msg(Socket *s){
-	char message[1024] = "Connectado";
-	while(true) {
-		s->send(message, 1024);
-		memset(message, 0, 1024);
-		cout << "Envie: ";
-		cin.getline(message, 256);
-	}
-
-}
-
-void rec_msg(Socket *s) {
+void *send_clientes(void *b){
 	char buffer[1024];
-	
-	while (true) {
-		memset(buffer, 0, 1024);
-		s->recv(buffer, 1024);
-		cout << "Recebeu: " << buffer << endl;
-	}
+	char *buffer2 = ((char*)b);
+
+	strcpy(buffer, buffer2);
+
+
+
 }
 
+void *send_msg(void *x){
+	Socket *s = ((Socket*)x);
+	char message[1024];
+	cout << "Envie: ";
+	while(true) {
+		printf("\n");
+		//cout << "Envie: ";
+		cin.getline(message, 1024);
+		s->send(message, strlen(message));
+
+		if(strcmp(message, "sair") == 0){
+			break;
+		}
+	}
+	printf("saiu\n");
+}
+
+
+void *rec_msg(void *x) {
+	Socket *s = ((Socket*)x);
+	char buffer[1024];
+
+	while(true){
+		memset(&buffer, 0, sizeof(buffer));
+		s->recv(buffer, 1024 );
+		printf("\n");
+		cout << "Recebeu: **" << buffer << "**"<< endl;
+
+	/*Envia para uma lista de pessoas*/
+		for(int i=0; i<(ListaSockets.size()); i++) {
+				//IA = ListaSockets[i]->getLocalAddress();
+			char resultado[1024];           /*gambiarra pra poder colocar a primeira pessoa como pessoa 1 e a segunda 2... etc*/
+			char parte2[1024]= "da Pessoa ";
+			char buffer2[1024];
+			sprintf(resultado, " %s %s", parte2, s->nome);
+			strcpy(buffer2, buffer);
+			strcat(buffer, resultado);
+
+			if(ListaSockets[i] == s) {
+				//memset(&buffer, 0, sizeof(buffer));
+				strcpy(buffer, buffer2);
+				continue; /*se o socket que enviou for igual ao oq ta na lista, pula, volta pro for, nao executa o send*/
+			}
+			ListaSockets[i]->send(buffer, strlen(buffer));
+
+			//memset(&buffer, 0, sizeof(buffer));
+			strcpy(buffer, buffer2);
+		}
+
+	}
+}
 int main(int argc, char *argv[])
 {
 	vector <Socket*> clientes;
@@ -52,25 +101,33 @@ int main(int argc, char *argv[])
     try {
         InetAddress *IA;
         Socket *s;
+
         char ip[50];
         int porta;
         char buffer[1024];
+
+        pthread_t t1, t2, t3;
+		//char nome[50];
         if (strcmp(argv[1], "servidor") == 0) {
             porta = atoi(argv[2]);
-            
+            //printf("%s", argv[3]);
+
             try {
                 ServerSocket *ss;
                 ss = new ServerSocket(porta);
-                
+
                 while(true){
 					s = ss->accept();
-                
-					//rec_msg(s);
-					thread t1(rec_msg, s);
-					clientes.push_back(s);
-					//t1.join();
-                }
-				
+					strcpy(s->nome, argv[3]);
+					//s->nome = nome;
+					//ListaSockets[pessoas] = (s);
+					ListaSockets.push_back(s);
+					pessoas++;
+
+					pthread_create(&t1, 0, rec_msg, (void*)s);
+				}
+				//pthread_join(t1, 0);
+
             }catch(UnknownHostException &u){
                 cout << u.what() << endl;
             }catch(IOException &io) {
@@ -79,33 +136,26 @@ int main(int argc, char *argv[])
             system("pause");
         }
         if (strcmp(argv[1], "client") == 0) {
-            //cout << "ip: " << endl;
-            //cin >> ip;
-            // cout << "porta: " << endl;
-			//cin >> porta;
-			
+
 			strcpy(ip, argv[3]);
             porta = atoi(argv[4]);
-            //strcpy(buffer, argv[5]);
-            //printf("%s %s"), buffer, argv[5];
+
             try {
                 //IA = InetAddress::getByName(ip); /*Se quiser pegar pelo nome ou endereco eh so aqui*/
                 IA = InetAddress::getByAddress(ip);
                 s = new Socket(IA, porta);
-				if (strcmp(argv[2], "1") == 0) {
-					strcpy(buffer, argv[5]);
-					s->send(buffer, strlen(buffer));
-					
-					cout << "enviado" << endl;
+				if (strcmp(argv[2], "1") == 0) { /*Argumento 1 envia so uma mensage e para*/
 					system("pause");
 				}
-				if (strcmp(argv[2], "2") == 0){
-					thread t2(send_msg, s);
-					t2.join();
-					
+
+				if (strcmp(argv[2], "2") == 0){ //argumento 1 pergunta para enviar a msg
+					pthread_create(&t2, 0, send_msg, (void *)s);
+					pthread_create(&t3, 0, rec_msg, (void*)s);
+					pthread_join(t3, 0);
 				}
-				//vector<thread> threads;
-				
+				//pthread_join(t2, 0);
+
+
             }catch(UnknownHostException &u) {
                 cout << u.what() << endl;
             }catch(IOException &io) {

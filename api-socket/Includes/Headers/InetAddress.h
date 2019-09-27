@@ -27,11 +27,12 @@ class InetAddress
 		void setHostName(string hostName);
 		void setHostAddr(string hostAddr);
 		~InetAddress(){};
+		string hostAddr;
 	private:
 		InetAddress(){};
 		static InetAddress *create(struct hostent *ht);
 		string hostName; // Variavel que guarda o nome do Host.
-		string hostAddr; // Variavel que guarda o Ip do host.
+		 // Variavel que guarda o Ip do host.
 		sockaddr_in ip_address;
 
 		friend class Socket;

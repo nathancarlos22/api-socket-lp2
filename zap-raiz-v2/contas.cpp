@@ -74,7 +74,10 @@ void contas::argumentoClient(string nome) {
 }
 void contas::argumentoServidor() {
 	char argv[50];
-	sprintf(argv, "start Api-socket.exe servidor %s", this->porta.c_str());
+	sprintf(argv, "start Api-socket.exe servidor %s %s", this->porta.c_str(), this->username.c_str());
+	system(argv);
+	
+	sprintf(argv, "start Api-socket.exe client %s %s %s", "2", this->ip.c_str(), this->porta.c_str());
 	system(argv);
 }
 
@@ -90,7 +93,7 @@ void argumento (string nome, string buffer) {
 	while(fscanf(arq, "%s %s %s %s", Cusername, Csenha, ip, porta) != EOF) {
 		if(strcmp(Cusername, nome.c_str()) == 0) {
 			char argv[50];
-			sprintf(argv, "start Api-socket.exe client %s %s %s %s", "1", ip, porta, buffer.c_str());
+			sprintf(argv, "start Api-socket.exe client %s %s %s %s", "2", ip, porta, buffer.c_str());
 			
 			system(argv);
 			system("pause");

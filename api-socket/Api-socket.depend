@@ -4,7 +4,7 @@
 	<ws2tcpip.h>
 	<iostream>
 
-1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\inetaddress.h
+1569559779 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\inetaddress.h
 	<iostream>
 	<exception>
 	<winsock2.h>
@@ -15,7 +15,7 @@
 1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\excessaohost.h
 	<exception>
 
-1568770593 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\serversocket.cpp
+1569514571 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\serversocket.cpp
 	"Headers/ServerSocket.h"
 
 1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\serversocket.h
@@ -25,7 +25,7 @@
 	<winsock2.h>
 	<iostream>
 
-1568764898 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\socket.h
+1569562845 c:\users\natha\desktop\projeto_lp2\api-socket\includes\headers\socket.h
 	"InetAddress.h"
 	"ExcessaoHost.h"
 	"IOException.h"
@@ -35,13 +35,13 @@
 	<string>
 	<exception>
 
-1568770616 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\socket.cpp
+1569562951 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\socket.cpp
 	<iostream>
 	<winsock2.h>
 	"Headers/ExcessaoHost.h"
 	"Headers/Socket.h"
 
-1569509306 source:c:\users\natha\desktop\projeto_lp2\api-socket\main.cpp
+1569541794 source:c:\users\natha\desktop\projeto_lp2\api-socket\main.cpp
 	<iostream>
 	<winsock2.h>
 	<stdio.h>
@@ -53,6 +53,8 @@
 	<thread>
 	<process.h>
 	<vector>
+	<pthread.h>
+	<chrono>
 
 1569017105 source:c:\users\natha\desktop\projeto_lp2\api-socket\includes\prints.cpp
 	<iostream>

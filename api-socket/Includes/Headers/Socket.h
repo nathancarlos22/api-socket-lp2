@@ -20,7 +20,7 @@ public:
     //Envia a string no array msg para o socket remoto.
     void operator<<(const char* msg) throw (IOException);
     //envia informacao a um socket conectado
-    int send(char * msg,int size) throw (IOException);
+    int send(char * msg, int size) throw (IOException);
     //Ler a string do socket remoto e armazena no array msg.
     void operator>>(const char* msg) throw (IOException);
     //recebe informacao de um socket conectado
@@ -34,6 +34,7 @@ public:
     int getLocalPort();
     //Retorna o número da porta remota em que o socket está conectado.
     int getPort();
+    char nome[50];
 
     int getDescritor();
     ~Socket();//destrutor

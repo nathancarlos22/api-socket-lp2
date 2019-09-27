@@ -49,7 +49,7 @@ int main (){
 					cout << "Logado com sucesso! " << endl;
 					
 					int op;
-					while(op!= 4){
+					while(op!= 3){
 						p->login();
 						cin >> op;
 						
@@ -63,23 +63,13 @@ int main (){
 								c->argumentoClient(destino);
 								break;
 								}
+							
 							case 2:
-								{
-									int x;
-									p->printContas();
-									
-									cout << "Esconlha o numero de pessoas que deseja enviar a mensagem: ";
-									cin >> x;
-									
-									c->enviar(x);
-									break;
-								}
-							case 3:
 								{
 									c->argumentoServidor();
 									break;
 								}
-							case 4:
+							case 3:
 								break;
 							
 						}

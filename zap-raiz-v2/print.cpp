@@ -14,7 +14,7 @@ void print::menu() {
 void print::login() {
 	system("cls");
 	cout << "\n TELA LOGIN \n";	
-	cout << "1. Envar mensagem privada\n2. Enviar mensagem para mais de uma pessoa\n3. Participar de uma conversa\n4. Logout" << endl;
+	cout << "1. Envar mensagem\n2. Participar de uma conversa\n3. Logout" << endl;
 	
 }
 
